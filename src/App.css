@@ -1,4 +1,14 @@
 .match-row {
   display: flex;
-  gap: 16px;
+  gap: 12px;
+}
+
+.victory {
+  color: green;
+  text-transform: capitalize;
+}
+
+.defeat {
+  color: red;
+  text-transform: capitalize;
 }

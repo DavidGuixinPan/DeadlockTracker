@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { getMatchHistory } from "./api/deadlock"
+import { getHeroList, getMatchHistory } from "./api/deadlock"
 import PlayerHeading from "./components/PlayerHeading"
 import PlayerSearch from "./components/PlayerSearch"
 import MatchRow from "./components/MatchRow"
@@ -7,6 +7,7 @@ import MatchRow from "./components/MatchRow"
 function App() {
   const accountID = 367616718
   const [data, setData] = useState(null)
+  const [heroes, setHeroes] = useState([])
 
   const matchHistory = useEffect(() => {
     async function loadMatches() {
@@ -17,10 +18,22 @@ function App() {
     loadMatches()
   }, [])
 
+  useEffect(() => {
+    async function loadHeroes() {
+      const json = await getHeroList()
+      setHeroes(json)
+    }
+
+    loadHeroes()
+  }, [])
+
+  console.log(heroes)
+
 
   return (
     <div>
       <h1>Deadlock Tracker</h1>
+
       <PlayerHeading 
         name="Kewlkuku"
         accountID={accountID}
@@ -30,7 +43,7 @@ function App() {
       {data === null 
         ? <p>Loading...</p> 
         : data.map((match) => (
-          <MatchRow key={match.match_id} match={match}/>
+          <MatchRow key={match.match_id} match={match} heroes={heroes}/>
       ))}
 
       

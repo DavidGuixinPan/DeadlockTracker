@@ -1,11 +1,18 @@
-function MatchRow({ match }) {
+import "../App.css"
+import HeroName from "./HeroName"
+
+function MatchRow({ match, heroes }) {
+  console.log(heroes)
+  const result = match.match_result === match.player_team ? "victory" : "defeat"
   return (
-    console.log(match),
     <div className="match-row"> 
-      <span>{match.match_result === 1 ? "Win  " : "Lose  "}</span>
-      <span>Kills: {match.player_kills} / </span>  
+      <span className={result}>
+        {result}
+      </span>
+      <span>Kills: {match.player_kills}  / </span>  
       <span>Deaths: {match.player_deaths} / </span>
       <span>Assists: {match.player_assists} </span>
+      <HeroName heroId={match.hero_id} heroes={heroes} />
   </div>
   )
 }
