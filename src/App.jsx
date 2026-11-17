@@ -9,7 +9,7 @@ function App() {
   const [data, setData] = useState(null)
   const [heroes, setHeroes] = useState([])
 
-  const matchHistory = useEffect(() => {
+  useEffect(() => {
     async function loadMatches() {
       const json = await getMatchHistory(accountID)
       setData(json)
@@ -27,8 +27,6 @@ function App() {
     loadHeroes()
   }, [])
 
-  console.log(heroes)
-
 
   return (
     <div>
@@ -39,12 +37,12 @@ function App() {
         accountID={accountID}
       />
       
-      <PlayerSearch />
       {data === null 
         ? <p>Loading...</p> 
         : data.map((match) => (
           <MatchRow key={match.match_id} match={match} heroes={heroes}/>
       ))}
+      <PlayerSearch />
 
       
     </div>

@@ -1,6 +1,7 @@
 .match-row {
   display: flex;
   gap: 12px;
+  align-items: center;
 }
 
 .victory {
@@ -11,4 +12,8 @@
 .defeat {
   color: red;
   text-transform: capitalize;
+}
+
+.hero-icon {
+  width: 32px;
 }
