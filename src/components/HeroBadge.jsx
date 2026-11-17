@@ -4,7 +4,6 @@ function HeroBadge({ heroId, heroes }) {
     return <span>Hero Not Found</span>
   }
   const foundHeroImage = foundHero.images.icon_hero_card
-  console.log(foundHero)
 
   return (
     <>

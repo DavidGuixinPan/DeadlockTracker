@@ -5,18 +5,20 @@ import PlayerSearch from "./components/PlayerSearch"
 import MatchRow from "./components/MatchRow"
 
 function App() {
-  const accountID = 367616718
+  const [accountId, setAccountId] = useState("")
   const [data, setData] = useState(null)
   const [heroes, setHeroes] = useState([])
 
   useEffect(() => {
     async function loadMatches() {
-      const json = await getMatchHistory(accountID)
+      if (!accountId) return
+      setData(null)
+      const json = await getMatchHistory(accountId)
       setData(json)
     }
 
     loadMatches()
-  }, [])
+  }, [accountId])
 
   useEffect(() => {
     async function loadHeroes() {
@@ -32,23 +34,23 @@ function App() {
     <div>
       <h1>Deadlock Tracker</h1>
 
+      <PlayerSearch onSearch={setAccountId}/>
       <PlayerHeading 
         name="Kewlkuku"
-        accountID={accountID}
+        accountId={accountId}
       />
       
-      {data === null 
+      {!accountId && <p>Search for a player...</p>}
+
+      {accountId && (data === null 
         ? <p>Loading...</p> 
         : data.map((match) => (
           <MatchRow key={match.match_id} match={match} heroes={heroes}/>
-      ))}
-      <PlayerSearch />
+      )))}
 
       
     </div>
   )
 }
-
-
 
 export default App
