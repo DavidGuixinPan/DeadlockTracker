@@ -1,9 +1,14 @@
-function PlayerHeading({ name, accountID }) {
+function PlayerHeading({ profile }) {
+  if (!profile) {
+    return null
+  }
+
+  const avatar = profile.avatarmedium
+
   return (
     <>
-    <h2>{name}</h2>
-    
-    <p>{accountID}</p>
+      <img src={avatar} alt={profile.personaname}/>
+      <h2>{profile.personaname}</h2>
     </>
   )
 }

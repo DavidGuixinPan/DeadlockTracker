@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { getHeroList, getMatchHistory } from "./api/deadlock"
+import { getHeroList, getMatchHistory, getPlayerProfile } from "./api/deadlock"
 import PlayerHeading from "./components/PlayerHeading"
 import PlayerSearch from "./components/PlayerSearch"
 import MatchRow from "./components/MatchRow"
@@ -8,6 +8,7 @@ function App() {
   const [accountId, setAccountId] = useState("")
   const [data, setData] = useState(null)
   const [heroes, setHeroes] = useState([])
+  const [profile, setProfile] = useState(null)
 
   useEffect(() => {
     async function loadMatches() {
@@ -29,6 +30,17 @@ function App() {
     loadHeroes()
   }, [])
 
+  useEffect(() => {
+    async function loadProfile() {
+      if (!accountId) return
+      setProfile(null)
+      const profile = await getPlayerProfile(accountId)
+      setProfile(profile)
+    }
+
+    loadProfile()
+  }, [accountId])
+
 
   return (
     <div>
@@ -36,8 +48,7 @@ function App() {
 
       <PlayerSearch onSearch={setAccountId}/>
       <PlayerHeading 
-        name="Kewlkuku"
-        accountId={accountId}
+        profile={profile}
       />
       
       {!accountId && <p>Search for a player...</p>}
