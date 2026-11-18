@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { toAccountId } from "./MatchRow"
 
 function PlayerSearch({ onSearch }) {
   const [text, setText] = useState("")
@@ -6,11 +7,11 @@ function PlayerSearch({ onSearch }) {
   return (
     <form onSubmit={(e) => {
       e.preventDefault()
-      onSearch(text)
+      onSearch(toAccountId(text))
     }}>
 
       <input
-        placeholder="Enter steam friend code"
+        placeholder="Enter friend code or SteamID64"
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
