@@ -1,4 +1,4 @@
-function toAccountId(input) {
+export function toAccountId(input) {
   const cleanInput = input.trim()
 
   if (cleanInput.length === 17) {

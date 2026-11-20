@@ -43,6 +43,7 @@ function formatDate(date) {
 
 function MatchRow({ match, heroes }) {
   const result = match.match_result === match.player_team ? "victory" : "defeat"
+  console.log(match.match_id, match.player_team, match.match_result)
   return (
     <div className="match-row"> 
       <span className={result}>

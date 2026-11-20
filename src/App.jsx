@@ -41,7 +41,16 @@ function App() {
     loadProfile()
   }, [accountId])
 
-
+  let matchContent;
+  if (data == null) {
+    matchContent = <p>Loading...</p>
+  } else if (data.length === 0) {
+    matchContent = <p>No Matches Found</p>
+  } else {
+    matchContent = data.map((match) => (
+          <MatchRow key={match.match_id} match={match} heroes={heroes}/>
+    ))
+  }
   return (
     <div>
       <h1>Deadlock Tracker</h1>
@@ -53,13 +62,7 @@ function App() {
       
       {!accountId && <p>Search for a player...</p>}
 
-      {accountId && (data === null 
-        ? <p>Loading...</p> 
-        : data.map((match) => (
-          <MatchRow key={match.match_id} match={match} heroes={heroes}/>
-      )))}
-
-      
+      {accountId && matchContent}
     </div>
   )
 }
