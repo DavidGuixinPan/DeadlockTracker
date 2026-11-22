@@ -1,5 +1,10 @@
 function HeroBadge({ heroId, heroes }) {
+  if (!heroes) {
+    return <span>Loading...</span>
+  }
+
   const foundHero = heroes.find((hero) => hero.id === heroId )
+
   if (!foundHero) {
     return <span>Hero Not Found</span>
   }
