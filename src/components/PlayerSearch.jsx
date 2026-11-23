@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { toAccountId } from "./PlayerHeading"
+import { toAccountId } from "../utils/toAccountId"
+
 
 function PlayerSearch({ onSearch }) {
   const [text, setText] = useState("")

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { getHeroList, getMatchHistory, getPlayerProfile } from "./api/deadlock"
 import PlayerHeading from "./components/PlayerHeading"
 import PlayerSearch from "./components/PlayerSearch"

@@ -45,16 +45,20 @@ function MatchRow({ match, heroes }) {
   const result = match.match_result === match.player_team ? "victory" : "defeat"
   return (
     <div className="match-row">
-      <span className={result}>
-        {result}
-      </span>
-      <span>{formatDate(match.start_time)}</span>
-      <HeroBadge heroId={match.hero_id} heroes={heroes} />
-      <span>{formatDuration(match.match_duration_s)}</span>
-      <span>Kills: {match.player_kills}  / </span>  
-      <span>Deaths: {match.player_deaths} / </span>
-      <span>Assists: {match.player_assists} </span>
-  </div>
+      <div className="match-row-col">
+        <span className={result}>
+          {result}
+        </span>
+        <span>{formatDate(match.start_time)}</span>
+        <HeroBadge heroId={match.hero_id} heroes={heroes} />
+        <span>{formatDuration(match.match_duration_s)}</span>
+        <span>Kills: {match.player_kills}  / </span>  
+        <span>Deaths: {match.player_deaths} / </span>
+        <span>Assists: {match.player_assists} </span>
+      </div>
+    </div>
+
+      
   )
 }
 

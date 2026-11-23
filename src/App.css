@@ -1,8 +1,20 @@
 .match-row {
   display: flex;
-  gap: 12px;
+  gap: 15px;
   justify-content: center;
   align-items: center;
+  border: 2px solid;
+  border-radius: 8px;
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.match-row-col {
+  display: flexbox;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
 }
 
 .victory {

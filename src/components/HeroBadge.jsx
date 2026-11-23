@@ -1,4 +1,8 @@
-function HeroBadge({ heroId, heroes }) {
+function HeroBadge({ heroId, heroes, heroError }) {
+  if (heroError) {
+    return <span>Couldn't load heroes. {heroError}</span>
+  }
+  
   if (!heroes) {
     return <span>Loading...</span>
   }
