@@ -1,3 +1,9 @@
+.app {
+  max-width: 650px;
+  width: 75%;
+  margin: 0 auto;
+}
+
 .match-row {
   display: flex;
   gap: 15px;
@@ -5,16 +11,22 @@
   align-items: center;
   border: 2px solid;
   border-radius: 8px;
-  max-width: 450px;
-  margin: 0 auto;
-  padding: 10px;
+  padding: 5px;
+  margin-bottom: 15px;
+  max-width: 400px;
+  margin: 0 auto 10px;
 }
 
 .match-row-col {
-  display: flexbox;
+  display: flex;
+  flex: 1;
   flex-direction: column;
-  gap: 15px;
   padding: 10px;
+  justify-content: space-between;
+}
+
+.match-row-time {
+  margin-right: auto;
 }
 
 .victory {
@@ -29,4 +41,25 @@
 
 .hero-icon {
   width: 32px;
+}
+
+.title {
+  text-align: center;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+}
+
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+}
+
+.status-message {
+  text-align: center;
 }

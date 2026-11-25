@@ -6,7 +6,7 @@ function PlayerSearch({ onSearch }) {
   const [text, setText] = useState("")
 
   return (
-    <form onSubmit={(e) => {
+    <form className="search-form" onSubmit={(e) => {
       e.preventDefault()
       onSearch(toAccountId(text))
     }}>

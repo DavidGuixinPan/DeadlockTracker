@@ -25,17 +25,18 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>Deadlock Tracker</h1>
+    <div className="app">
+      <h1 className="title">Deadlock Tracker</h1>
 
       <PlayerSearch onSearch={setAccountId}/>
       <PlayerHeading 
         profile={profile}
       />
       
-      {!accountId && <p>Search for a player...</p>}
-
-      {accountId && matchContent}
+      <div className="status-message">
+        {!accountId && <p>Search for a player...</p>}
+        {accountId && matchContent}
+      </div>
     </div>
   )
 }

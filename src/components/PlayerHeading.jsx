@@ -10,10 +10,10 @@ function PlayerHeading({ profile, profileError }) {
   const avatar = profile.avatarmedium
 
   return (
-    <>
+    <div className="profile">
       <img src={avatar} alt={profile.personaname}/>
       <h2>{profile.personaname}</h2>
-    </>
+    </div>
   )
 }
 
