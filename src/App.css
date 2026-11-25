@@ -8,12 +8,12 @@
   display: flex;
   gap: 15px;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   border: 2px solid;
   border-radius: 8px;
   padding: 5px;
   margin-bottom: 15px;
-  max-width: 400px;
+  max-width: 450px;
   margin: 0 auto 10px;
 }
 
@@ -23,6 +23,10 @@
   flex-direction: column;
   padding: 10px;
   justify-content: space-between;
+}
+
+.match-row-col:not(:first-child) {
+  border-left: lightgray 1px solid;
 }
 
 .match-row-time {
