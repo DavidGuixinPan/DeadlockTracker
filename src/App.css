@@ -21,8 +21,10 @@
   display: flex;
   flex: 1;
   flex-direction: column;
+  min-width: 0;
   padding: 10px;
-  justify-content: space-between;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 .match-row-col:not(:first-child) {
@@ -62,6 +64,10 @@
   align-items: center;
   gap: 15px;
   padding: 10px;
+}
+
+.profile-icon {
+  border-radius: 50%;
 }
 
 .status-message {

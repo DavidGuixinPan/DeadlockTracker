@@ -1,20 +1,20 @@
 function PlayerHeading({ profile, profileError }) {
   if (profileError) {
-    return <span>Couldn't load profile. {profileError}</span>
+    return <span>Couldn't load profile. {profileError}</span>;
   }
 
   if (!profile) {
-    return null
+    return null;
   }
 
-  const avatar = profile.avatarmedium
+  const avatar = profile.avatarmedium;
 
   return (
-    <div className="profile">
-      <img src={avatar} alt={profile.personaname}/>
+    <div className="profile match-row">
+      <img className="profile-icon" src={avatar} alt={profile.personaname} />
       <h2>{profile.personaname}</h2>
     </div>
-  )
+  );
 }
 
-export default PlayerHeading
+export default PlayerHeading;

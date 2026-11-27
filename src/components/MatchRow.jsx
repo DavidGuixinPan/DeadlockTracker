@@ -28,12 +28,14 @@ function formatDate(date) {
   const hours = Math.floor(timeAgo / HOUR);
   const minutes = Math.floor(timeAgo / MINUTE);
 
+  const phrase = (num, unit) => `${num} ${unit}${num === 1 ? "" : "s"} ago`;
+
   if (hours < 1) {
-    return `${minutes} minutes ago`;
+    return phrase(minutes, "minute");
   } else if (days < 1) {
-    return `${hours} hours ago`;
+    return phrase(hours, "hour");
   } else {
-    return `${days} days ago`;
+    return phrase(days, "day");
   }
 }
 
@@ -50,7 +52,11 @@ function MatchRow({ match, heroes }) {
         <span>{formatDuration(match.match_duration_s)}</span>
       </div>
       <div className="match-row-col">
-        <HeroBadge heroId={match.hero_id} heroes={heroes} />
+        <HeroBadge
+          className="hero-info"
+          heroId={match.hero_id}
+          heroes={heroes}
+        />
       </div>
       <div className="match-row-col">
         <span>
