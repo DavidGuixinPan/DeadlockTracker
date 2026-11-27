@@ -21,11 +21,13 @@ function App() {
 
   let matchContent;
   if (matchError) {
-    matchContent = <p>Couldn't load matches. {matchError}</p>;
+    matchContent = (
+      <p className="status-message">Couldn't load matches. {matchError}</p>
+    );
   } else if (matches === null) {
-    matchContent = <p>Loading...</p>;
+    matchContent = <p className="status-message">Loading...</p>;
   } else if (matches.length === 0) {
-    matchContent = <p>No Matches Found</p>;
+    matchContent = <p className="status-message">No Matches Found</p>;
   } else {
     matchContent = matches.map((match) => (
       <MatchRow key={match.match_id} match={match} heroes={heroes} />
@@ -39,10 +41,8 @@ function App() {
       <PlayerSearch onSearch={setAccountId} />
       <PlayerHeading profile={profile} />
 
-      <div className="status-message">
-        {!accountId && <p>Search for a player...</p>}
-        {accountId && matchContent}
-      </div>
+      {!accountId && <p>Search for a player...</p>}
+      {accountId && matchContent}
     </div>
   );
 }

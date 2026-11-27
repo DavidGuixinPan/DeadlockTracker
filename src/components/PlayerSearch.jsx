@@ -13,12 +13,15 @@ function PlayerSearch({ onSearch }) {
       }}
     >
       <input
+        className="search-box"
         placeholder="Enter friend code or SteamID64"
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
 
-      <button type="submit">Search</button>
+      <button className="search-button" type="submit">
+        Search
+      </button>
     </form>
   );
 }
