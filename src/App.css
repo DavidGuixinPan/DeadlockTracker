@@ -21,7 +21,6 @@ body {
   border: 2px solid #9ca3af;
   border-radius: 8px;
   padding: 5px;
-  margin-bottom: 15px;
   margin: 0 auto 10px;
 }
 
@@ -33,15 +32,19 @@ body {
   justify-content: center;
   min-width: 0;
   padding: 10px;
-  white-space: nowrap;
 }
 
 .match-row-col:not(:first-child) {
-  border-left: lightgray 1px solid;
+  border-left: #9ca3af 2px solid;
 }
 
 .match-row-time {
+  color: #d3d3d3;
   margin-right: auto;
+}
+
+.match-row-duration {
+  color: #d3d3d3;
 }
 
 .victory {
@@ -55,7 +58,12 @@ body {
 }
 
 .hero-icon {
-  width: 32px;
+  width: 45px;
+}
+
+.kda {
+  font-size: 21px;
+  font-weight: bold;
 }
 
 .title {
@@ -70,23 +78,31 @@ body {
 }
 
 .search-box {
+  background-color: #16171d;
   flex: 1;
   padding: 10px;
   border: 2px solid #9ca3af;
   border-radius: 8px;
   font: inherit;
+  color: #e3e9f5;
 }
 
 .search-box:focus {
-  border: 2px solid;
+  border: 2px solid white;
   outline: none;
 }
 
+.search-box::placeholder {
+  color: #6b7280;
+}
+
 .search-button {
+  background-color: #c3921fc2;
   padding: 10px;
   border: 2px solid;
   border-radius: 8px;
   font: inherit;
+  cursor: pointer;
 }
 
 .profile {
@@ -103,4 +119,15 @@ body {
 
 .status-message {
   text-align: center;
+}
+
+@media (max-width: 460px) {
+  .match-row-col {
+    padding: 1px;
+  }
+
+  .match-row {
+    gap: 5px;
+    padding: 2px;
+  }
 }

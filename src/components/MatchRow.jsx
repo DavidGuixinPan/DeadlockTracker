@@ -47,7 +47,7 @@ function MatchRow({ match, heroes }) {
       <div className="match-row-col match-row-time">
         <span>{formatDate(match.start_time)}</span>
       </div>
-      <div className="match-row-col">
+      <div className="match-row-col match-row-duration">
         <span className={result}>{result}</span>
         <span>{formatDuration(match.match_duration_s)}</span>
       </div>
@@ -59,7 +59,7 @@ function MatchRow({ match, heroes }) {
         />
       </div>
       <div className="match-row-col">
-        <span>
+        <span className="kda">
           {match.player_kills} / {match.player_deaths} /{" "}
           {match.player_assists}{" "}
         </span>
